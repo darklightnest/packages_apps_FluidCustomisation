@@ -20,6 +20,8 @@ package com.fluid.customisation.categories;
 import static android.os.UserHandle.USER_CURRENT;
 import static com.fluid.customisation.fragments.SystemTheme.SETTINGS_ACTIVE_OVERLAY_KEY;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
@@ -91,7 +93,7 @@ public class Themes extends DashboardFragment implements OnPreferenceChangeListe
         mLockClockStyles.setOnPreferenceChangeListener(this);
 
         mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
-        int recentsStyle = Settings.System.getInt(resolver,
+        int recentsStyle = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_NAVIGATION_BAR_RECENTS, 0);
 
         mNavbarRecentsStyle.setValue(Integer.toString(recentsStyle));
